@@ -1,5 +1,7 @@
 package rs;
 
+import java.net.URL;
+import java.nio.file.Paths;
 import java.util.Collection;
 
 import javax.ws.rs.DELETE;
@@ -40,17 +42,8 @@ public class PeopleRestService {
 	@GET
 	@ApiOperation( value = "List all people", notes = "List all people using paging", response = Person.class, responseContainer = "List")
 	public Collection< Person > getPeople(  @ApiParam( value = "Page to fetch", required = true ) @QueryParam( "page") @DefaultValue( "1" ) final int page ) {
-		System.out.println("inside service........");
+		
 		peopleService = new PeopleService();
-		
-		
-		System.out.println("ApiListingResource.getClass().getClassLoader() : "
-                + ApiListingResource.class.getClassLoader());
-		
-		System.out.println("SwaggerSerializers.getClass().getClassLoader() : "
-                + SwaggerSerializers.class.getClassLoader());
-		
-		
 		return peopleService.getPeople( page, 5 );
 	}
 

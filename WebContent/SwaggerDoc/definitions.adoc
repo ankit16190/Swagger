@@ -1,0 +1,22 @@
+
+[[_definitions]]
+== Definitions
+
+[[_person]]
+=== Person
+Person resource representation
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**email** +
+__required__|Person's first name|string
+|**firstName** +
+__required__|Person's e-mail address|string
+|**lastName** +
+__required__|Person's last name|string
+|===
+
+
+

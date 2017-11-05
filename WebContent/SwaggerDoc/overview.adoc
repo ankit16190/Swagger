@@ -1,0 +1,22 @@
+= Swagger APIzz
+
+
+[[_overview]]
+== Overview
+
+=== Version information
+[%hardbreaks]
+__Version__ : 1.0
+
+
+=== URI scheme
+[%hardbreaks]
+__BasePath__ : /SwaggerExample/webapi
+
+
+=== Tags
+
+* people
+
+
+

@@ -1,0 +1,212 @@
+
+[[_paths]]
+== Paths
+
+[[_addperson]]
+=== Create new person
+....
+POST /people
+....
+
+
+==== Description
+Create new person
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**FormData**|**email** +
+__required__|E-Mail|string
+|**FormData**|**firstName** +
+__required__|First Name|string
+|**FormData**|**lastName** +
+__required__|Last Name|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**201**|Person created successfully|No Content
+|**409**|Person with such e-mail already exists|No Content
+|===
+
+
+==== Produces
+
+* `application/json`
+
+
+==== Tags
+
+* people
+
+
+[[_getpeople]]
+=== List all people
+....
+GET /people
+....
+
+
+==== Description
+List all people using paging
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**page** +
+__required__|Page to fetch|integer (int32)|`1`
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|successful operation|< <<_person,Person>> > array
+|===
+
+
+==== Produces
+
+* `application/json`
+
+
+==== Tags
+
+* people
+
+
+[[_getpeople]]
+=== Find person by e-mail
+....
+GET /people/{email}
+....
+
+
+==== Description
+Find person by e-mail
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**email** +
+__required__|E-Mail address to lookup for|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|successful operation|<<_person,Person>>
+|**404**|Person with such e-mail doesn't exists|No Content
+|===
+
+
+==== Produces
+
+* `application/json`
+
+
+==== Tags
+
+* people
+
+
+[[_updateperson]]
+=== Update existing person
+....
+PUT /people/{email}
+....
+
+
+==== Description
+Update existing person
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**email** +
+__required__|E-Mail|string
+|**FormData**|**firstName** +
+__optional__|First Name|string
+|**FormData**|**lastName** +
+__optional__|First Name|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|successful operation|<<_person,Person>>
+|**404**|Person with such e-mail doesn't exists|No Content
+|===
+
+
+==== Produces
+
+* `application/json`
+
+
+==== Tags
+
+* people
+
+
+[[_deleteperson]]
+=== Delete existing person
+....
+DELETE /people/{email}
+....
+
+
+==== Description
+Delete existing person
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**email** +
+__required__|E-Mail|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|successful operation|<<_person,Person>>
+|**404**|Person with such e-mail doesn't exists|No Content
+|===
+
+
+==== Tags
+
+* people
+
+
+
